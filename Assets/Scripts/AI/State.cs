@@ -10,8 +10,8 @@ public abstract class State
     protected AIScript path;
     protected StateMachine sm;
 
-    public float verticalInput;
-    public float horizontalInput;
+    //public float verticalInput;
+    //public float horizontalInput;
 
 
     // base constructor

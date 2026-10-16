@@ -11,7 +11,8 @@ public class AttackState : State
 
     public override void Enter()
     {
-        path.anim.Play("Attack1Anim");
+        path.anim.Play("Male Attack 1");
+        Debug.Log("entering attack state");
     }
 
     public override void Exit()
@@ -22,6 +23,8 @@ public class AttackState : State
 
     public override void Update()
     {
-        //ReadInput();
+
+
+        //UIscript.ui.DrawText("*** This is the attack state ***\n");
     }
 }

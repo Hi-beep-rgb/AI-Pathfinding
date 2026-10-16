@@ -16,7 +16,7 @@ public class IdleState : State
     {
         // this method is called when the state begins
 
-        path.anim.Play("IdleAnim");
+        path.anim.Play("Male Idle");
         Debug.Log("entering idle state");
     }
 
@@ -32,21 +32,15 @@ public class IdleState : State
 
     public override void Update()
     {
-        float x = path.moveAction.ReadValue<Vector2>().x;
-
-
-        if (x > 0.1f || x < -0.1f)
+        if (path.nma.velocity.magnitude != 0f)
         {
             sm.ChangeState(sm.runState);
         }
 
-
-      
-
-        UIscript.ui.DrawText("*** This is the idle state ***\n");
-        UIscript.ui.DrawText("Space = Jump State");
-        UIscript.ui.DrawText("Left/Right arrows = Move State");
-        UIscript.ui.DrawText("C = Start the coroutine");
+        //UIscript.ui.DrawText("*** This is the idle state ***\n");
+        //UIscript.ui.DrawText("Space = Jump State");
+        //UIscript.ui.DrawText("Left/Right arrows = Move State");
+        //UIscript.ui.DrawText("C = Start the coroutine");
 
 
     }

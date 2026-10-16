@@ -3,45 +3,27 @@
 //It passes control to the statemachine
 
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.InputSystem;
 
 public class AIScript : MonoBehaviour
 {
-    public SpriteRenderer sr;
-    public Rigidbody2D rb;
+    //public SpriteRenderer sr;
+    public NavMeshAgent nma;
+    public Rigidbody rb;
     StateMachine sm;
     public Animator anim;
-
-    //define the actions
-    public InputAction moveAction;
-    public InputAction crouchAction;
-    public InputAction jumpAction;
-    public InputAction interactAction;
-
-    //My added action
-    public InputAction attackAction;
-
-
 
 
     private void Start()
     {
         sm = new StateMachine(this); //"this" means - pass a reference of this script (player script) to the statemachine
-        sr = GetComponent<SpriteRenderer>();
-        rb = GetComponent<Rigidbody2D>();
+        //sr = GetComponent<SpriteRenderer>();
+        nma = GetComponent<NavMeshAgent>();
+        rb = GetComponent<Rigidbody>();
         anim = GetComponent<Animator>();
 
         sm.Init(sm.idleState); //this will be the first state to run 
-
-        //initialise the actions
-        moveAction = InputSystem.actions.FindAction("Move");
-        crouchAction = InputSystem.actions.FindAction("Crouch");
-        interactAction = InputSystem.actions.FindAction("Interact");
-        jumpAction = InputSystem.actions.FindAction("Jump");
-
-        //My added action
-        attackAction = InputSystem.actions.FindAction("Attack");
-
     }
 
     private void Update()
